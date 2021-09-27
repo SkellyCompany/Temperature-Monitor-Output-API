@@ -1,6 +1,4 @@
 import { TemperatureGateway } from './gateways/temperature/temperature.gateway';
-import { HumidityService } from './../../InputWeb/infrastructure/services/http-services/Humidity.service';
-import { TemperatureService } from './../../InputWeb/infrastructure/services/http-services/Temperature.service';
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -8,6 +6,8 @@ import { HumidityRecord, HumidityRecordSchema } from 'src/schemas/humidity-recor
 import { TemperatureRecord, TemperatureRecordSchema } from 'src/schemas/temperature-record.schema';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
+import { TemperatureService } from 'src/services/temperature/temperature.service';
+import { HumidityService } from 'src/services/humidity/humidity.service';
 
 @Module({
   imports: [
