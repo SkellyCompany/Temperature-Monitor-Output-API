@@ -8,8 +8,8 @@ export class TemperatureService {
     constructor(
         @InjectModel(TemperatureRecord.name) private temperatureRecordModel: Model<TemperatureRecordDocument>
     ) { }
-    
-    getAllRecords():  Promise<TemperatureRecord[]> {
+
+    getAllRecords(): Promise<TemperatureRecord[]> {
         return this.temperatureRecordModel.find().exec();
     }
 }

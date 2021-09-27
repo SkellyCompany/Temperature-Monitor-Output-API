@@ -4,8 +4,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  //Cors
+
+  // CORS
   app.enableCors();
+
   // HiveMQ
   app.connectMicroservice({
     transport: Transport.MQTT,
@@ -16,6 +18,7 @@ async function bootstrap() {
       password: 'SKELLYskelly11!'
     },
   });
+
   await app.startAllMicroservices();
   await app.listen(process.env.PORT || 5000);
 }
