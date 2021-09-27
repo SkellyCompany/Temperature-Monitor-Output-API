@@ -28,7 +28,7 @@ export class HumidityGateway implements OnGatewayConnection {
 	}
 
 	@MessagePattern('humidity/newInsert')
-	getForwardBackward(@Payload() data: TemperatureRecordDocument, @Ctx() context: MqttContext) {
+	newHumidityInsert(@Payload() data: TemperatureRecordDocument, @Ctx() context: MqttContext) {
 		this.server.emit('humidityRecords', this.humidityService.getAllRecords());
 	}
 }

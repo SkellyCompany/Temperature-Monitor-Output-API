@@ -28,7 +28,7 @@ export class TemperatureGateway implements OnGatewayConnection {
   }
 
   @MessagePattern('temperature/newInsert')
-  getForwardBackward(@Payload() data: TemperatureRecordDocument, @Ctx() context: MqttContext) {
+  newTemperatureInsert(@Payload() data: TemperatureRecordDocument, @Ctx() context: MqttContext) {
     this.server.emit('temperatureRecords', this.temperatureService.getAllRecords());
   }
 }
